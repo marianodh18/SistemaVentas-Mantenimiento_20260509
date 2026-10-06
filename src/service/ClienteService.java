@@ -8,7 +8,7 @@ import repository.IClienteRepository;
 public class ClienteService {
 
     //Inversión de control: uso de interfaces
-    private IClienteRepository clienteRepo;
+    private final IClienteRepository clienteRepo;
 
     public ClienteService(IClienteRepository repo) {
         this.clienteRepo = repo;
@@ -29,5 +29,8 @@ public class ClienteService {
 
     public Cliente buscarCliente(String dni) {
         return clienteRepo.buscarPorDni(dni);
+        
     }
+    
 }
+

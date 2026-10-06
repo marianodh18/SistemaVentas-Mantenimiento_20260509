@@ -1,6 +1,7 @@
 package app;
 
 import repository.ClienteRepository;
+import repository.IClienteRepository;
 import repository.ProductoRepository;
 import repository.VentaRepository;
 import service.ClienteService;
@@ -12,14 +13,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //llamada a los metodos de constructor
-        ClienteRepository clienteRepository = new ClienteRepository();
+        // Inversión de dependencias: se declara la interfaz y se inyecta la implementación
+        IClienteRepository clienteRepository = new ClienteRepository();
         ClienteService clienteService = new ClienteService(clienteRepository);
 
         ProductoRepository productoRepository = new ProductoRepository();
         VentaRepository ventaRepository = new VentaRepository();
 
-    
         ProductoService productoService = new ProductoService(productoRepository);
         VentaService ventaService = new VentaService(clienteService, productoService, ventaRepository);
         ReporteService reporteService = new ReporteService(ventaRepository);

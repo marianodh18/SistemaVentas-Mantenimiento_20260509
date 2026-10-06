@@ -8,14 +8,15 @@ public class ClienteRepository implements IClienteRepository {
 
     private List<Cliente> clientes;
 
+    
     public ClienteRepository() {
         this.clientes = new ArrayList<>();
     }
-
+    @Override
     public void guardar(Cliente cliente) {
         clientes.add(cliente);
     }
-
+    @Override
     // BUG intencional: comparación de DNI con == en vez de equals
     public Cliente buscarPorDni(String dni) {
         for (Cliente c : clientes) {
