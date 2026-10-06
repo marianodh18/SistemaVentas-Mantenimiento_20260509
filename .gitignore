@@ -6,3 +6,4 @@ target/
 .idea/
 .vscode/
 .DS_Store
+# Semana 8 - Reglas SCM: ignorar configuracion del IDE y compilados
